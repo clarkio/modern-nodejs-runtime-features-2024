@@ -26,3 +26,24 @@ describe("test suite 2", () => {
     });
   });
 });
+
+describe(
+  "test suite 3 - running concurrent tests",
+  { concurrency: true },
+  () => {
+    test("calc 10 + 10", () => {
+      const result = add(10, 10);
+      assert.strictEqual(result, 20);
+    });
+
+    test("calc 100 + 100", () => {
+      const result = add(100, 100);
+      assert.strictEqual(result, 200);
+    });
+
+    test("calc 1000 + 1000", () => {
+      const result = add(1000, 1000);
+      assert.strictEqual(result, 2000);
+    });
+  }
+);
