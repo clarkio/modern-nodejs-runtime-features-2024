@@ -25,6 +25,13 @@ describe("test suite 2", () => {
       add("1", "2");
     });
   });
+
+  // @TODO this also needs to be done
+  test.todo("should fail to add from arrays", () => {
+    assert.throws(() => {
+      add([2], [2]);
+    });
+  });
 });
 
 describe(
