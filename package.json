@@ -8,6 +8,7 @@
     "test:coverage": "node --test --experimental-test-coverage",
     "test:watch": "node --watch --test '**/*.test.js'"
   },
+  "packageManager": "yarn@2.4.1",
   "type": "module",
   "keywords": [],
   "author": "",
