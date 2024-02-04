@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node --env-file=.env server.js",
     "test": "node --test",
     "test:coverage": "node --test --experimental-test-coverage",
     "test:watch": "node --watch --test '**/*.test.js'"
@@ -12,5 +13,8 @@
   "type": "module",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^4.26.0"
+  }
 }
