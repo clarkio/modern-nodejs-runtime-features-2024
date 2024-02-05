@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node --env-file=.env server.js",
+    "start:protected": "node --experimental-permission --allow-fs-read=./ --env-file=.env server.js",
     "test": "node --test",
     "test:coverage": "node --test --experimental-test-coverage",
     "test:watch": "node --watch --test '**/*.test.js'"

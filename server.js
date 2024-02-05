@@ -1,8 +1,16 @@
 import fs from "node:fs";
 import fastify from "fastify";
+import { loadEnv } from "./src/dotenv.js";
+
+const env = await loadEnv();
 
 const { dirname: __dirname, filename: __filename } = import.meta;
-const projectSetup = fs.readFileSync(`${__dirname}/setup.yml`, "utf8");
+// @TODO to avoid the Node.js resource permission issue you should update
+// the path to be `setup.yml` in the current directory and not `../setup.yml`.
+// the outside path for setup.yml was only changed in the source code to
+// show you how Node.js resource permission module will halt if trying to access
+// something outside the current directory.
+const projectSetup = fs.readFileSync(`${__dirname}/../setup.yml`, "utf8");
 // @TODO do something with projectSetup if you want to
 
 const server = fastify();
