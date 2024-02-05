@@ -10,8 +10,17 @@ const { dirname: __dirname, filename: __filename } = import.meta;
 // the outside path for setup.yml was only changed in the source code to
 // show you how Node.js resource permission module will halt if trying to access
 // something outside the current directory.
-const projectSetup = fs.readFileSync(`${__dirname}/../setup.yml`, "utf8");
-// @TODO do something with projectSetup if you want to
+const filePath = `${__dirname}/../setup.yml`;
+try {
+  const projectSetup = fs.readFileSync(filePath, "utf8");
+  // @TODO do something with projectSetup if you want to
+} catch (error) {
+  console.error(error.code);
+}
+// @TODO or consider using the permissions runtime API check:
+if (!process.permission.has("read", filePath)) {
+  console.error("no permissions to read file at", filePath);
+}
 
 const server = fastify();
 
