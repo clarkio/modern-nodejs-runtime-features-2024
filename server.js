@@ -1,7 +1,5 @@
-// run a simple fastify server route for a status check /api/status endpoint
-// that shows the server is running and the current time and the process.env.DEBUG variable
-
 import fastify from "fastify";
+
 const server = fastify();
 
 server.get("/api/status", async (request, reply) => {
